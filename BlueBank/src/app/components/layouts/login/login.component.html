@@ -1,0 +1,47 @@
+<div class="bg-img">
+    <mat-grid-list cols="2" gutterSize="15px">
+        <mat-grid-tile>
+            <mat-card class="login-card">
+                    <img mat-card-image class="main-logo" src="./assets/Bluebank_logo.png" alt="bluebank logo">
+                <mat-card-content class="login-body">
+                    <div class="login-container">
+                        <mat-form-field>
+                            <input matInput placeholder="Username" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <!-- <input matInput placeholder="Password" type="password" required> -->
+                            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'"
+                                formControlName="password" required>
+                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+                            </mat-icon>
+                            <mat-hint *ngIf="!passwordInput.value">Enter your password</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <span class="centerit"><button mat-button class="btn btn-primary">Login</button></span>
+                    <span class="centerit"><button mat-button class="primary">Forgot password?</button></span>
+                    <span class="centerit"><button mat-button class="primary">Don't have an account?</button></span>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card class="notice-card">
+                <mat-card-content>
+                    <p class="wordwrap">BlueBank &mdash; The financial app for blue collar employees
+                        provides:<br /><br />
+                        &mdash; Automatic Payroll Distribution<br />
+                        &mdash; Enrollment of employees for varying projects<br />
+                        &mdash; Report generation<br />
+                        &mdash; And so much more!<br />
+                        <br />
+                        <br />
+                        <i>I was brought up poor, but I've earned every cent in my bank account.</i>
+                        <br />
+                        &mdash;Matt Hardy
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

@@ -15,15 +15,21 @@ import {MatListModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import {CustomMaterialModule} from './material-module';
+import { LoginComponent } from './components/layouts/login/login.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SidenavResponsiveExample,
-    WorkspaceComponent
+    WorkspaceComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,11 @@ import {CustomMaterialModule} from './material-module';
     CustomMaterialModule,
     MatIconModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    MatCardModule,
+    MatGridListModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
