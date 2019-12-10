@@ -29,26 +29,6 @@
             </fieldset>
         </div>
 
-        <div class="row">
-            <div class="form-field col-md-4">
-                <label for="dateOfBirth">Date of Birth</label>
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-                <input matInput [matDatepicker]="picker" class="form-control" [value]="dateOfBirth"
-                    [(ngModel)]="model.dateOfBirth" id="dateOfBirth" required [(ngModel)]="model.dateOfBirth"
-                    name="dateOfBirth" #dateOfBirth="ngModel">
-            </div>
-        </div>
-
-        <div class="row" style="margin-top: 2%">
-            <div class="form-group col-md-2">
-                <label for="gender">Gender</label>
-                <select class="form-control" id="gender" required [(ngModel)]="model.gender" name="gender">
-                    <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
-                </select>
-            </div>
-        </div>
-
         <div class="form-group row" style="margin-top: 2%;">
             <fieldset class="form-group col-md-4">
                 <label for="email">Email</label>
@@ -69,6 +49,24 @@
             </fieldset>
         </div>
 
+        <div class="form-group row" style="margin-top: 2%;">
+            <fieldset class="form-group col-md-4">
+                <label for="dateOfBirth">Date of Birth</label>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <input matInput [matDatepicker]="picker" class="form-control" [value]="dateOfBirth"
+                    [(ngModel)]="model.dateOfBirth" id="dateOfBirth" required [(ngModel)]="model.dateOfBirth"
+                    name="dateOfBirth" #dateOfBirth="ngModel">
+            </fieldset>
+
+            <fieldset class="form-group col-md-2" style="margin-top: 1%;">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender" required [(ngModel)]="model.gender" name="gender">
+                    <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+                </select>
+            </fieldset>
+        </div>
+
         <div class="row" style="margin-top: 2%">
             <fieldset class="form-group col-md-4">
                 <label for="address">Address</label>
@@ -80,8 +78,78 @@
             </fieldset>
         </div>
 
+        <!--<button mat-button class="addIdBtn" (click)="onClick()">
+            <mat-icon class="icon-space-condensed" style="margin-right:5px;">add_box</mat-icon>
+            <span class="word-space-small">Identification</span>
+        </button>-->
+
+        <div class="form-group row" style="margin-bottom:0;">
+            <fieldset class="form-group col-md-3">
+                <label for="type">ID Type</label>
+                <input type="text" class="form-control" id="type" required [(ngModel)]="id.type" name="type"
+                    #type="ngModel" />
+                <div [hidden]="type.valid || type.pristine" class="alert alert-danger">
+                    ID type is required
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group col-md-4">
+                <label for="id">ID Number</label>
+                <input type="text" class="form-control" id="id" required [(ngModel)]="id.id" name="id"
+                    #id="ngModel" />
+                <div [hidden]="id.valid || id.pristine" class="alert alert-danger">
+                    ID number is required
+                </div>
+            </fieldset>
+        </div>
+
+        <!--
+        <div class="form-group row" style="margin-bottom:0;" *ngIf="!ids1">
+            <fieldset class="form-group col-md-3">
+                <input type="text" class="form-control" id="idt1" required [(ngModel)]="id.idt1" name="idt1"
+                    #idt1="ngModel" />
+                <div [hidden]="idt1.valid || idt1.pristine" class="alert alert-danger">
+                    ID type is required
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group col-md-4">
+                <input type="text" class="form-control" id="idn1" required [(ngModel)]="id.idn1" name="idn1"
+                    #idn1="ngModel" />
+                <div [hidden]="idn1.valid || idn1.pristine" class="alert alert-danger">
+                    ID number is required
+                </div>
+            </fieldset>
+
+            <button mat-button class="delIdBtn" (click)="onDelClick1()">
+                <mat-icon class="icon-space-condensed">indeterminate_check_box</mat-icon>
+            </button>
+        </div>
+
+        <div class="form-group row" style="margin-bottom:0" *ngIf="!ids2">
+            <fieldset class="form-group col-md-3">
+                <input type="text" class="form-control" id="idt2" required [(ngModel)]="id.idt2" name="idt2"
+                    #idt2="ngModel" />
+                <div [hidden]="idt2.valid || idt2.pristine" class="alert alert-danger">
+                    ID type is required
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group col-md-4">
+                <input type="text" class="form-control" id="idn2" required [(ngModel)]="id.idn2" name="idn2"
+                    #idn2="ngModel" />
+                <div [hidden]="idn2.valid || idn2.pristine" class="alert alert-danger">
+                    ID number is required
+                </div>
+            </fieldset>
+
+            <button mat-button class="delIdBtn" (click)="onDelClick2()">
+                <mat-icon class="icon-space-condensed">indeterminate_check_box</mat-icon>
+            </button>
+        </div> -->
+
         <div class="row" style="margin-top: 3%; margin-left: 0%; margin-bottom: 5%;">
-            <button type="submit" class="btn btn-success col-md-3">Submit</button>
+            <input type="submit" value="Submit" class="btn btn-success col-md-3" >
         </div>
     </form>
 </div>
