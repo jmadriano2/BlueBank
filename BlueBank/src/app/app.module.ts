@@ -4,8 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './components/layouts/navbar/navbar.component';
-// import { SidebarComponent } from './components/layouts/sidebar/sidebar.component';
 import { SidenavResponsiveExample } from './components/layouts/sidebar/sidebar.component';
 import { WorkspaceComponent } from './components/layouts/workspace/workspace.component';
 
@@ -22,14 +20,15 @@ import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {MatGridListModule} from '@angular/material/grid-list';
+import { AboutComponent } from './components/layouts/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     SidenavResponsiveExample,
     WorkspaceComponent,
-    LoginComponent
+    LoginComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
