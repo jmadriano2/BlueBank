@@ -4,10 +4,15 @@
             <button mat-icon-button (click)="snav.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
+            <div class="logo-container">
+                <img src="../../../../assets/Hackdog_logo.png" class="bg-img">
+            </div>
             <h1 class="app-name">BlueBank</h1>
             <span class="menu-spacer"></span>
-            <button mat-button [matMenuTriggerFor]="menu"><span class="word-space-small">Bruce Wayne</span><mat-icon class="icon-space-condensed">person</mat-icon></button>
-            <mat-menu #menu="matMenu">
+            <button mat-button [matMenuTriggerFor]="menu"><span class="word-space-small">Bruce Wayne</span>
+                <mat-icon class="icon-space-condensed">person</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
                 <button mat-menu-item>Profile</button>
                 <button mat-menu-item>Settings</button>
                 <button mat-menu-item>Help</button>
@@ -17,9 +22,11 @@
         </mat-toolbar-row>
     </mat-toolbar>
 
-    <mat-sidenav-container class="custom-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
-            fixedTopGap="56">
+    <!-- <mat-sidenav-container class="custom-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0"> -->
+    <mat-sidenav-container class="custom-sidenav-container">
+        <!-- <mat-sidenav mode="side" opened #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+            fixedTopGap="56"> -->
+        <mat-sidenav mode="side" opened #snav>
             <mat-nav-list>
                 <a mat-list-item class="word-space">
                     <mat-icon class="icon-space">dashboard</mat-icon>Dashboard
@@ -34,7 +41,8 @@
         </mat-sidenav>
 
         <mat-sidenav-content>
-            <p>login-cardsdjklgskljgdf;gsdljvkjsfdlbkvj;sfdlgfgdkjfhbdfjgdgfshnsj;ldk';gbkdng;kfl';fdgmnk;lg';sdflnk;dml'gks;hdgk;nmglghdg;lkfdplgkhdfnkd;mls';gdhfkngd</p>
+            <p>login-cardsdjklgskljgdf;gsdljvkjsfdlbkvj;sfdlgfgdkjfhbdfjgdgfshnsj;ldk';gbkdng;kfl';fdgmnk;lg';sdflnk;dml'gks;hdgk;nmglghdg;lkfdplgkhdfnkd;mls';gdhfkngd
+            </p>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>
