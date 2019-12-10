@@ -1,4 +1,6 @@
 export class Identification {
-    type:string;
-    id:string
+    constructor(
+      public type: string,
+      public id: string,
+    ) { }
 }

@@ -2,6 +2,22 @@
     border-left: 5px solid #42A948; /* green */
   }
   
-  .ng-invalid:not(form)  {
+  .ng-invalid:not(form) and .ng-pristine {
     border-left: 5px solid #a94442; /* red */
+  }
+
+  .addIdBtn {
+    background-color: #42A948;
+    color: whitesmoke;
+    padding-left:10px;
+    padding-right:10px;
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .delIdBtn {
+    background-color: white;
+    color: #a94442;
+    margin:0;
+    padding:0;
   }

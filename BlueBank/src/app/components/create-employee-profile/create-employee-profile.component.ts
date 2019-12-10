@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Profile } from 'src/app/models/profile';
+import { Identification } from 'src/app/models/identification';
+import { ProfileService } from 'src/app/services/profile.service';
+import { Account } from 'src/app/models/account';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-employee-profile',
@@ -10,16 +14,42 @@ export class CreateEmployeeProfileComponent {
 
   genders = ['Male', 'Female'];
 
-  model = new Profile("", "", "", "", "", "Male", "", [], "", "", "", "");
+  type: string = "";
+  id: string = "";
+  identification = new Identification(this.type, this.id);
+  
+  account = new Account('001','Payroll Account');
 
-  submitted = false;
 
-  onSubmit() { this.submitted = true; }
+  model = new Profile( "", "", "", "", "Male", "", "", "", [this.identification], [this.account]);
 
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
+  ids1 = true;
+  ids2 = true;
 
-  newHero() {
+  constructor(private profileService: ProfileService, private router: Router) { }
+
+  onSubmit() {
+    this.profileService.addProfile(this.model).subscribe();
+    this.router.navigate(['/dashboard']);
   }
+
+  // onClick() {
+  //   console.log(this.ids1)
+  //   if (this.ids1) {
+  //     this.ids1 = false;
+  //   } else {
+  //     if (this.id2) {
+  //       this.ids2 = false;
+  //     }
+  //   }
+  // }
+
+  // onDelClick1() {
+  //   this.ids1 = true;
+  // }
+
+  // onDelClick2() {
+  //   this.ids2 = true;
+  // }
 
 }

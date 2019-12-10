@@ -1,16 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavResponsiveExample } from './components/layouts/sidebar/sidebar.component';
 import { WorkspaceComponent } from './components/layouts/workspace/workspace.component';
+import { CreateEmployeeProfileComponent } from './components/create-employee-profile/create-employee-profile.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material';
 import {MatListModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -28,7 +33,9 @@ import { AboutComponent } from './components/layouts/about/about.component';
     SidenavResponsiveExample,
     WorkspaceComponent,
     LoginComponent,
-    AboutComponent
+    AboutComponent,
+    DashboardComponent,
+    CreateEmployeeProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,10 @@ import { AboutComponent } from './components/layouts/about/about.component';
     MatDialogModule,
     MatCardModule,
     MatGridListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDatepickerModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
