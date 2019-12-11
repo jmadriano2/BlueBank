@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +26,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {MatGridListModule} from '@angular/material/grid-list';
 import { AboutComponent } from './components/layouts/about/about.component';
+import {MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,9 @@ import { AboutComponent } from './components/layouts/about/about.component';
     MatCheckboxModule,
     MatDatepickerModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,6 +13,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  // signin: FormGroup = new FormGroup({
+  //   email: new FormControl('', [Validators.email, Validators.required ]),
+  //   password: new FormControl('', [Validators.required, Validators.min(3) ])
+  // });
+  // hide = true;
+  // get emailInput() { return this.signin.get('email'); }
+  // get passwordInput() { return this.signin.get('password'); }
   signin: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required ]),
     password: new FormControl('', [Validators.required, Validators.min(3) ])

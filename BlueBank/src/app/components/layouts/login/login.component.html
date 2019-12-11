@@ -2,20 +2,21 @@
     <mat-grid-list cols="2" gutterSize="15px">
         <mat-grid-tile>
             <mat-card class="login-card">
-                    <img mat-card-image class="main-logo" src="./assets/Bluebank_logo.png" alt="bluebank logo">
+                <img mat-card-image class="main-logo" src="./assets/Bluebank_logo.png" alt="bluebank logo">
                 <mat-card-content class="login-body">
                     <div class="login-container">
-                        <mat-form-field>
-                            <input matInput placeholder="Username" required>
-                        </mat-form-field>
-                        <mat-form-field>
-                            <!-- <input matInput placeholder="Password" type="password" required> 
-                            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'"
-                                formControlName="password" required>
-                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
-                            </mat-icon>
-                            <mat-hint *ngIf="!passwordInput.value">Enter your password</mat-hint>-->
-                        </mat-form-field>
+                        <form [formGroup]="signin">
+                            <mat-form-field>
+                                <input matInput placeholder="Username" required>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'"
+                                    formControlName="password" required>
+                                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+                                </mat-icon>
+                                <mat-hint *ngIf="!passwordInput.value">Enter your password</mat-hint>
+                            </mat-form-field>
+                        </form>
                     </div>
                 </mat-card-content>
                 <mat-card-actions>
