@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProfileService } from 'src/app/services/profile.service';
 import { Profile } from 'src/app/models/profile';
 
@@ -14,7 +14,7 @@ export interface PeriodicElement {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
   elements: PeriodicElement[] = [
     {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
     {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
@@ -32,16 +32,9 @@ export class DashboardComponent implements OnInit {
 
   constructor(private profileService:ProfileService) { 
   }
-
-  ngOnInit() {
-    this.profileService.getProfile().subscribe(profiles=> {
-      this.profiles = profiles;
-    });
-    console.log(this.profiles);
-  }
   
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = this.profiles;
+  dataSource = this.elements;
 
 
 }
