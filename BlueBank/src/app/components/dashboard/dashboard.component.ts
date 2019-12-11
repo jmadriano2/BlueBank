@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Sort } from '@angular/material/sort';
+import { Component, OnInit } from '@angular/core';
+import { ProfileService } from 'src/app/services/profile.service';
+import { Profile } from 'src/app/models/profile';
 
 export interface PeriodicElement {
   position: number;
@@ -13,7 +14,7 @@ export interface PeriodicElement {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   elements: PeriodicElement[] = [
     {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
     {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
@@ -26,36 +27,21 @@ export class DashboardComponent {
     {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
     {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
   ];
-  
-  sortedData: PeriodicElement[];
 
-  constructor() { 
-    this.sortedData = this.elements.slice();
+  profiles:Profile[];
+
+  constructor(private profileService:ProfileService) { 
+  }
+
+  ngOnInit() {
+    this.profileService.getProfile().subscribe(profiles=> {
+      this.profiles = profiles;
+    });
+    console.log(this.profiles);
   }
   
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = this.sortedData;
+  dataSource = this.profiles;
 
-  sortData(sort: Sort) {
-    const data = this.elements.slice();
-    if (!sort.active || sort.direction === '') {
-      this.sortedData = data;
-      return;
-    }
 
-    this.sortedData = data.sort((a, b) => {
-      const isAsc = sort.direction === 'asc';
-      switch (sort.active) {
-        case 'position': return compare(a.position, b.position, isAsc);
-        case 'name': return compare(a.name, b.name, isAsc);
-        case 'weight': return compare(a.weight, b.weight, isAsc);
-        case 'symbol': return compare(a.symbol, b.symbol, isAsc);
-        default: return 0;
-      }
-    });
-  }
-}
-
-function compare(a: number | string, b: number | string, isAsc: boolean) {
-  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
