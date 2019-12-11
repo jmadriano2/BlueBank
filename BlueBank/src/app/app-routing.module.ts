@@ -7,7 +7,8 @@ import { LoginComponent } from './components/layouts/login/login.component';
 const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'main', component: SidenavResponsiveExample},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 
 @NgModule({
